@@ -2,11 +2,13 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div>
-		<input data-bind="value: searchTerm" />
+	<div id="search">
+		<input id="search-box" data-bind="value: searchTerm" />
 	</div>
-	<div id="list">p</div>
-	<div id="map">p</div>
+	<div id="app">
+		<div id="list"></div>
+		<div id="map"></div>
+	</div>
 
 
 	<script src='js/knockout-3.4.0.js'></script>

@@ -7,6 +7,9 @@ function initMap() {
 		center: {lat: -34.397, lng: 150.644}
 	});
 
+	mapElem = document.getElementById('map');
+	mapElem.style.height = window.innerHeight - 50;
+
 };
 
 function AppViewModel() {
