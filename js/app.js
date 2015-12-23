@@ -17,6 +17,13 @@ function AppViewModel() {
 
 	self.searchTerm = ko.observable("Search...");
 
+	self.locations = ko.observableArray([
+			'Nashville',
+			'Norway',
+			'Bonair',
+			'Zimbabwe'
+		]);
+
 	self.displayLocMarker = function(){
 		self.geocoder.geocode({'address': self.address()}, function(results, status) {
 			if (status === google.maps.GeocoderStatus.OK) {

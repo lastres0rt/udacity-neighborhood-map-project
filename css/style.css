@@ -20,11 +20,23 @@ body {
 #list {
 	order: 1;
 	flex-grow: 1;
-	background-color: #F00;
+	background-color: #055;
 }
 
 #map {
 	order: 2;
 	flex-grow: 4;
 	background-color: #0F0;
+}
+
+#results {
+	margin: 0;
+	padding: 0;
+}
+
+#place {
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+    background-color: #088;
 }
