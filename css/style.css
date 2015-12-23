@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	font-family: Verdana, Geneva, sans-serif;
 }
 
 #search {
@@ -10,6 +11,8 @@ body {
 #search-box {
 	flex-grow: 1;
 	height: 50px;
+	font-size: 1em;
+	padding: 5px 20px;
 }
 
 #app {
