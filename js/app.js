@@ -8,6 +8,36 @@ var initialLocations = [
 		name: 'Hacker Dojo',
 		lat: 37.402,
 		long: -122.052
+	},
+	{
+		name: 'Red Rock Coffee',
+		lat: 37.393,
+		long:-122.081
+	},
+	{
+		name: 'Com Tam Thanh (Broken Rice)',
+		lat: 37.309,
+		long: -121.934
+	},
+	{
+		name: 'House of Falafel',
+		lat: 37.322,
+		long: -122.018
+	},
+	{
+		name: 'The Prolific Oven',
+		lat: 37.394,
+		long: -121.948
+	},
+	{
+		name: 'Pho Mai #1 Noodle House',
+		lat: 37.415,
+		long: -121.878
+	},
+	{
+		name: 'Alviso Marina County Park',
+		lat: 37.429,
+		long: -121.984
 	}
 
 ]
