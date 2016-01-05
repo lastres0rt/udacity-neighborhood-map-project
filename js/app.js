@@ -64,8 +64,9 @@ function AppViewModel() {
 		if (!filter) {
 			return self.locationList();
 		} else {
-			return ko.utils.arrayFilter(self.locationList, function(locationItem) {
-				return ko.utils.stringStartsWith(locationItem.name().toLowerCase, filter);
+			return ko.utils.arrayFilter(self.locationList(), function(locationItem) {
+				var string = locationItem.name().toLowerCase();
+       			return string.search(filter) >= 0;
 			});
 		}
 	}, self);
@@ -79,7 +80,6 @@ function AppViewModel() {
 	this.mapElem.style.height = window.innerHeight - 50;
 
 	this.filteredList().forEach(function(locationItem){
-		console.log(locationItem);
 		var latLng = {lat: locationItem.lat(), lng: locationItem.long()};
 		console.log(latLng);
 		var marker = new google.maps.Marker({
