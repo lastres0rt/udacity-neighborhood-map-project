@@ -51,9 +51,26 @@ var Location = function(data) {
 function AppViewModel() {
 	var self = this;
 
-	this.searchTerm = ko.observable("Search...");
+	this.searchTerm = ko.observable("");
 
 	this.locationList = ko.observableArray([]);
+
+	initialLocations.forEach(function(locationItem){
+		self.locationList.push( new Location(locationItem));
+	});
+
+	this.filteredList = ko.computed( function() {
+		var filter = self.searchTerm().toLowerCase();
+		if (!filter) {
+			return self.locationList();
+		} else {
+			return ko.utils.arrayFilter(self.locationList, function(locationItem) {
+				return ko.utils.stringStartsWith(locationItem.name().toLowerCase, filter);
+			});
+		}
+	}, self);
+
+	console.log(this.filteredList);
 
 	this.map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 12,
@@ -63,15 +80,13 @@ function AppViewModel() {
 	this.mapElem = document.getElementById('map');
 	this.mapElem.style.height = window.innerHeight - 50;
 
-	initialLocations.forEach(function(locationItem){
-		self.locationList.push( new Location(locationItem) );
+	this.filteredList().forEach(function(locationItem){
 		var latLng = {lat: locationItem.lat, lng: locationItem.long};
 		var marker = new google.maps.Marker({
 			position: latLng,
 			map: self.map,
 			title: locationItem.name
 		});
-
 	});
 }
 

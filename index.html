@@ -3,11 +3,11 @@
 </head>
 <body>
 	<div id="search">
-		<input id="search-box" data-bind="value: searchTerm" />
+		<input id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
 	</div>
 	<div id="app">
 		<div id="list">
-			<ul id="results" data-bind="foreach: locationList">
+			<ul id="results" data-bind="foreach: filteredList">
 				<li id="place" data-bind="text: name"></li>
 			</ul>
 		</div>
