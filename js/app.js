@@ -70,8 +70,6 @@ function AppViewModel() {
 		}
 	}, self);
 
-	console.log(this.filteredList);
-
 	this.map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 12,
 			center: {lat: 37.370, lng: -122.002}
@@ -81,11 +79,13 @@ function AppViewModel() {
 	this.mapElem.style.height = window.innerHeight - 50;
 
 	this.filteredList().forEach(function(locationItem){
-		var latLng = {lat: locationItem.lat, lng: locationItem.long};
+		console.log(locationItem);
+		var latLng = {lat: locationItem.lat(), lng: locationItem.long()};
+		console.log(latLng);
 		var marker = new google.maps.Marker({
 			position: latLng,
 			map: self.map,
-			title: locationItem.name
+			title: locationItem.name()
 		});
 	});
 }
