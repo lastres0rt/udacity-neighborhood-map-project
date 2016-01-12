@@ -43,11 +43,14 @@ var initialLocations = [
 ]
 
 var Location = function(data) {
+	var self = this;
 	this.name = data.name;
 	this.lat = data.lat;
 	this.long = data.long;
 
 	this.visible = ko.observable(true);
+
+	this.infoWindow = new google.maps.InfoWindow({content: data.name});
 
 	this.marker = new google.maps.Marker({
 			position: new google.maps.LatLng(data.lat, data.long),
@@ -64,9 +67,9 @@ var Location = function(data) {
 		return true;
 	}, this);
 
-	function setVisible(bool) {
-		this.visible = bool;
-	};
+	this.marker.addListener('click', function(){
+		self.infoWindow.open(map, this)
+	});
 };
 
 function AppViewModel() {
