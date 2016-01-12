@@ -87,7 +87,7 @@ function AppViewModel() {
 			return self.locationList();
 		} else {
 			return ko.utils.arrayFilter(self.locationList(), function(locationItem) {
-				var string = locationItem.name().toLowerCase();
+				var string = locationItem.name.toLowerCase();
        			return string.search(filter) >= 0;
 			});
 		}
