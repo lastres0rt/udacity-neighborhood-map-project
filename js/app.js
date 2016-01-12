@@ -63,6 +63,10 @@ var Location = function(data) {
 		}
 		return true;
 	}, this);
+
+	function setVisible(bool) {
+		this.visible = bool;
+	};
 };
 
 function AppViewModel() {
@@ -88,7 +92,9 @@ function AppViewModel() {
 		} else {
 			return ko.utils.arrayFilter(self.locationList(), function(locationItem) {
 				var string = locationItem.name.toLowerCase();
-       			return string.search(filter) >= 0;
+				var result = (string.search(filter) >= 0);
+				locationItem.visible(result);
+				return result;
 			});
 		}
 	}, self);
