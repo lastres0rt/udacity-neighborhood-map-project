@@ -43,10 +43,27 @@ var initialLocations = [
 ]
 
 var Location = function(data) {
-	this.name = ko.observable(data.name);
-	this.lat = ko.observable(data.lat);
-	this.long = ko.observable(data.long);
-}
+	this.name = data.name;
+	this.lat = data.lat;
+	this.long = data.long;
+
+	this.visible = ko.observable(true);
+
+	this.marker = new google.maps.Marker({
+			position: new google.maps.LatLng(data.lat, data.long),
+			map: map,
+			title: data.name
+	});
+
+	this.showMarker = ko.computed(function() {
+		if(this.visible() === true) {
+			this.marker.setMap(map);
+		} else {
+			this.marker.setMap(null);
+		}
+		return true;
+	}, this);
+};
 
 function AppViewModel() {
 	var self = this;
@@ -55,9 +72,14 @@ function AppViewModel() {
 
 	this.locationList = ko.observableArray([]);
 
+	map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 12,
+			center: {lat: 37.370, lng: -122.002}
+	});
+
 	initialLocations.forEach(function(locationItem){
 		self.locationList.push( new Location(locationItem));
-	});
+	})
 
 	this.filteredList = ko.computed( function() {
 		var filter = self.searchTerm().toLowerCase();
@@ -71,24 +93,9 @@ function AppViewModel() {
 		}
 	}, self);
 
-	this.map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 12,
-			center: {lat: 37.370, lng: -122.002}
-		});
-
 	this.mapElem = document.getElementById('map');
 	this.mapElem.style.height = window.innerHeight - 50;
-
-	this.filteredList().forEach(function(locationItem){
-		var latLng = {lat: locationItem.lat(), lng: locationItem.long()};
-		console.log(latLng);
-		var marker = new google.maps.Marker({
-			position: latLng,
-			map: self.map,
-			title: locationItem.name()
-		});
-	});
-}
+};
 
 function startApp() {
 	ko.applyBindings(new AppViewModel());
