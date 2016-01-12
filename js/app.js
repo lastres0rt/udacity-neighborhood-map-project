@@ -83,11 +83,14 @@ function AppViewModel() {
 
 	initialLocations.forEach(function(locationItem){
 		self.locationList.push( new Location(locationItem));
-	})
+	});
 
 	this.filteredList = ko.computed( function() {
 		var filter = self.searchTerm().toLowerCase();
 		if (!filter) {
+			self.locationList().forEach(function(locationItem){
+				locationItem.visible(true);
+			});
 			return self.locationList();
 		} else {
 			return ko.utils.arrayFilter(self.locationList(), function(locationItem) {
