@@ -32,6 +32,7 @@ body {
 	flex-grow: 4;
 	background-color: #fff;
 	text-align: center;
+	height: 1000px;
 }
 
 .results {
