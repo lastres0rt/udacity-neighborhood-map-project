@@ -97,7 +97,7 @@ var Location = function(data) {
 			self.phone = formatPhone(self.phone);
 		}
 	}).fail(function() {
-		self.error = "There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.";
+		alert("There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.");
 	});
 
 	this.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
