@@ -1,3 +1,5 @@
+'use strict';
+
 var initialLocations = [
 	{
 		name: 'Bracher Park',
@@ -40,7 +42,12 @@ var initialLocations = [
 		long: -121.984
 	}
 
-]
+];
+
+// Declaring global variables now to satisfy strict mode
+var map;
+var clientID;
+var clientSecret;
 
 var Location = function(data) {
 	var self = this;
@@ -108,7 +115,7 @@ var Location = function(data) {
 
 	this.bounce = function(place) {
 		google.maps.event.trigger(self.marker, 'click');
-	}
+	};
 };
 
 function AppViewModel() {
@@ -150,7 +157,7 @@ function AppViewModel() {
 
 	this.mapElem = document.getElementById('map');
 	this.mapElem.style.height = window.innerHeight - 50;
-};
+}
 
 function startApp() {
 	ko.applyBindings(new AppViewModel());
