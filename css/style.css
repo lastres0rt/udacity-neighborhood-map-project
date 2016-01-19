@@ -54,4 +54,9 @@ body {
 	flex-direction: column;
 }
 
+
+.search-box, .list {
+	font-size: 1.5em;
+}
+
 }
