@@ -8,7 +8,7 @@
 	<div id="app">
 		<div id="list">
 			<ul id="results" data-bind="foreach: filteredList">
-				<li id="place" data-bind="text: name"></li>
+				<li id="place" data-bind="text: name, click: bounce"></li>
 			</ul>
 		</div>
 		<div id="map"></div>

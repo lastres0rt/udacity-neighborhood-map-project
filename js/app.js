@@ -53,7 +53,6 @@ var Location = function(data) {
 	this.phone = "";
 
 	this.visible = ko.observable(true);
-	this.selected = ko.observable(false);
 
 	var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll='+ this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.name;
 
@@ -97,21 +96,12 @@ var Location = function(data) {
 		return true;
 	}, this);
 
-	this.bounceMarker = ko.computed(function() {
-		if(this.selected() === true) {
-			this.marker.setAnimation(google.maps.Animation.BOUNCE);
-		} else {
-			this.marker.setAnimation(null);
-		}
-		return true;
-	}, this);
-
 	this.marker.addListener('click', function(){
-		self.contentString = '<div class="info-window-content"><div class="title">' + data.name + "</div>" +
-        '<div class="content">' + self.URL + "</div>" +
-        '<div class="content">' + self.street + "</div>" +
-        '<div class="content">' + self.city + "</div>" +
-        '<div class="content">' + self.phone + "</div></div>";
+		self.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + '</b></div>' +
+        '<div class="content">' + self.URL + '</div>' +
+        '<div class="content">' + self.street + '</div>' +
+        '<div class="content">' + self.city + '</div>' +
+        '<div class="content">' + self.phone + '</div></div>';
 
         self.infoWindow.setContent(self.contentString);
 
@@ -122,6 +112,10 @@ var Location = function(data) {
       		self.marker.setAnimation(null);
      	}, 2100);
 	});
+
+	this.bounce = function(place) {
+		google.maps.event.trigger(self.marker, 'click');
+	}
 };
 
 function AppViewModel() {
