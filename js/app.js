@@ -49,6 +49,25 @@ var map;
 var clientID;
 var clientSecret;
 
+
+// formatPhone function referenced from
+// http://snipplr.com/view/65672/10-digit-string-to-phone-format/
+
+function formatPhone(phonenum) {
+    var regexObj = /^(?:\+?1[-. ]?)?(?:\(?([0-9]{3})\)?[-. ]?)?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (regexObj.test(phonenum)) {
+        var parts = phonenum.match(regexObj);
+        var phone = "";
+        if (parts[1]) { phone += "+1 (" + parts[1] + ") "; }
+        phone += parts[2] + "-" + parts[3];
+        return phone;
+    }
+    else {
+        //invalid phone number
+        return phonenum;
+    }
+}
+
 var Location = function(data) {
 	var self = this;
 	this.name = data.name;
@@ -66,15 +85,23 @@ var Location = function(data) {
 	$.getJSON(foursquareURL).done(function(data) {
 		var results = data.response.venues[0];
 		self.URL = results.url;
+		if (typeof self.URL === 'undefined'){
+			self.URL = "";
+		}
 		self.street = results.location.formattedAddress[0];
      	self.city = results.location.formattedAddress[1];
       	self.phone = results.contact.phone;
+      	if (typeof self.phone === 'undefined'){
+			self.phone = "";
+		} else {
+			self.phone = formatPhone(self.phone);
+		}
 	}).fail(function() {
 		self.error = "There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.";
 	});
 
-	this.contentString = '<div class="info-window-content"><div class="title">' + data.name + "</div>" +
-        '<div class="content">' + self.URL + "</div>" +
+	this.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
+        '<div class="content"><a href="' + self.URL +'">' + self.URL + "</a></div>" +
         '<div class="content">' + self.street + "</div>" +
         '<div class="content">' + self.city + "</div>" +
         '<div class="content">' + self.phone + "</div></div>";
@@ -97,11 +124,11 @@ var Location = function(data) {
 	}, this);
 
 	this.marker.addListener('click', function(){
-		self.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + '</b></div>' +
-        '<div class="content">' + self.URL + '</div>' +
-        '<div class="content">' + self.street + '</div>' +
-        '<div class="content">' + self.city + '</div>' +
-        '<div class="content">' + self.phone + '</div></div>';
+		self.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
+        '<div class="content"><a href="' + self.URL +'">' + self.URL + "</a></div>" +
+        '<div class="content">' + self.street + "</div>" +
+        '<div class="content">' + self.city + "</div>" +
+        '<div class="content">' + self.phone + "</div></div>";
 
         self.infoWindow.setContent(self.contentString);
 
