@@ -44,3 +44,12 @@ body {
     list-style: none;
     background-color: #088;
 }
+
+
+@media only screen and (max-device-width : 959px), only screen and (max-width : 959px)  {
+
+#app {
+	flex-direction: column;
+}
+
+}
