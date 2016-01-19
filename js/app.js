@@ -47,10 +47,40 @@ var Location = function(data) {
 	this.name = data.name;
 	this.lat = data.lat;
 	this.long = data.long;
+	this.URL = "";
+	this.street = "";
+	this.city = "";
+	this.phone = "";
 
 	this.visible = ko.observable(true);
+	this.selected = ko.observable(false);
 
-	this.infoWindow = new google.maps.InfoWindow({content: data.name});
+	var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll='+ this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.name;
+
+	$.getJSON(foursquareURL).done(function(data) {
+		console.log('AJAX is working!');
+		var results = data.response.venues[0];
+		self.URL = results.url;
+		console.log(self.URL);
+		self.street = results.location.formattedAddress[0];
+		console.log(self.street);
+     	self.city = results.location.formattedAddress[1];
+     	console.log(self.city);
+      	self.phone = results.contact.phone;
+      	console.log(self.phone);
+
+      	console.log(results);
+	}).fail(function() {
+		self.error = "There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.";
+	});
+
+	this.contentString = '<div class="info-window-content"><div class="title">' + data.name + "</div>" +
+        '<div class="content">' + self.URL + "</div>" +
+        '<div class="content">' + self.street + "</div>" +
+        '<div class="content">' + self.city + "</div>" +
+        '<div class="content">' + self.phone + "</div></div>";
+
+	this.infoWindow = new google.maps.InfoWindow({content: self.contentString});
 
 	this.marker = new google.maps.Marker({
 			position: new google.maps.LatLng(data.lat, data.long),
@@ -67,8 +97,30 @@ var Location = function(data) {
 		return true;
 	}, this);
 
+	this.bounceMarker = ko.computed(function() {
+		if(this.selected() === true) {
+			this.marker.setAnimation(google.maps.Animation.BOUNCE);
+		} else {
+			this.marker.setAnimation(null);
+		}
+		return true;
+	}, this);
+
 	this.marker.addListener('click', function(){
-		self.infoWindow.open(map, this)
+		self.contentString = '<div class="info-window-content"><div class="title">' + data.name + "</div>" +
+        '<div class="content">' + self.URL + "</div>" +
+        '<div class="content">' + self.street + "</div>" +
+        '<div class="content">' + self.city + "</div>" +
+        '<div class="content">' + self.phone + "</div></div>";
+
+        self.infoWindow.setContent(self.contentString);
+
+		self.infoWindow.open(map, this);
+
+		self.marker.setAnimation(google.maps.Animation.BOUNCE);
+      	setTimeout(function() {
+      		self.marker.setAnimation(null);
+     	}, 2100);
 	});
 };
 
@@ -83,6 +135,10 @@ function AppViewModel() {
 			zoom: 12,
 			center: {lat: 37.370, lng: -122.002}
 	});
+
+	// Foursquare API settings
+	clientID = "V443OTCAQPJLCRY4QWBFYN3ZK5FDKGJOYDHLMI3O342IRVNN";
+	clientSecret = "AK1JHLEG2D2KW14WF5HYVFNTUYFTBXYS4LDUUNRAHPR5URLB";
 
 	initialLocations.forEach(function(locationItem){
 		self.locationList.push( new Location(locationItem));
