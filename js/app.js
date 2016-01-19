@@ -57,18 +57,11 @@ var Location = function(data) {
 	var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll='+ this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.name;
 
 	$.getJSON(foursquareURL).done(function(data) {
-		console.log('AJAX is working!');
 		var results = data.response.venues[0];
 		self.URL = results.url;
-		console.log(self.URL);
 		self.street = results.location.formattedAddress[0];
-		console.log(self.street);
      	self.city = results.location.formattedAddress[1];
-     	console.log(self.city);
       	self.phone = results.contact.phone;
-      	console.log(self.phone);
-
-      	console.log(results);
 	}).fail(function() {
 		self.error = "There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.";
 	});

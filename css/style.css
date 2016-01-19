@@ -29,7 +29,8 @@ body {
 #map {
 	order: 2;
 	flex-grow: 4;
-	background-color: #0F0;
+	background-color: #FFF;
+	text-align: center;
 }
 
 #results {
