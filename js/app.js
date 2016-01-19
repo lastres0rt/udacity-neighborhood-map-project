@@ -128,7 +128,7 @@ var Location = function(data) {
         '<div class="content"><a href="' + self.URL +'">' + self.URL + "</a></div>" +
         '<div class="content">' + self.street + "</div>" +
         '<div class="content">' + self.city + "</div>" +
-        '<div class="content">' + self.phone + "</div></div>";
+        '<div class="content"><a href="tel:' + self.phone +'">' + self.phone +"</a></div></div>";
 
         self.infoWindow.setContent(self.contentString);
 
