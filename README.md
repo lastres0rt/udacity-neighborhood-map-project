@@ -2,13 +2,15 @@
 
 ![Part of the Udacity Front-End Web Development Nanodegree](https://img.shields.io/badge/Udacity-Front--End%20Web%20Developer%20Nanodegree-02b3e4.svg)
 
-Developed for Project 5-1 of the **Udacity Front-End Web Developer Nanodegree.**, also known as the **Udacity-Neighborhood Map Project**, a challenge to put together a website from various APIs, including Google Maps and other location-based services like Foursquare.
+Developed for Project 5-1 of the **Udacity Front-End Web Developer Nanodegree**. 
 
-Included is a list of my and my friends' favorite restaurants in the South Bay along with some local parks in the area.
+This is the **Udacity Neighborhood Map Project**. It's intended as a challenge to put together a website from various APIs. This includes Google Maps and other location-based services like Foursquare.
 
-The app allows you to filter the list down as you type. In return, it displays the locations on the map along with some additional info pulled from Foursquare where available (such as websites and phone numbers, although none of the places listed require a reservation.)
+Included is a list of my and my friends' favorite restaurants in the South Bay. There's also with some local parks in the area.
 
-The app is responsive, too! It resizes using CSS Flexbox and media queries to recalibrate itself based on your screen size.
+The app allows you to filter the list down as you type. In return, it displays the locations on the map. There's also extra  info pulled from Foursquare where available. This includes websites and phone numbers. 
+
+The app is responsive, too! It resizes using CSS Flexbox and media queries. It can recalibrate itself based on your screen size.
 
 # How To Use It
 
