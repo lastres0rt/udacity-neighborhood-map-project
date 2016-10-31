@@ -6,7 +6,7 @@ Developed for Project 5-1 of the **Udacity Front-End Web Developer Nanodegree**.
 
 This is the **Udacity Neighborhood Map Project**. It's intended as a challenge to put together a website from various APIs. This includes Google Maps and other location-based services like Foursquare.
 
-Included is a list of my and my friends' favorite restaurants in the South Bay. There's also with some local parks in the area.
+Included is a list of my and my friends' favorite restaurants in the South Bay. 🍽 There's also with some local parks in the area.
 
 The app allows you to filter the list down as you type. In return, it displays the locations on the map. There's also extra info pulled from Foursquare where available. This includes websites and phone numbers. 
 
