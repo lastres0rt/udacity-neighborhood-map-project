@@ -40,8 +40,13 @@ var initialLocations = [
 		name: 'Alviso Marina County Park',
 		lat: 37.429,
 		long: -121.984
+	},
+	{
+		name: 'Peet\'s Coffee (aka "Church")',
+		lat: 37.307,
+		long: -121.900
 	}
-
+	
 ];
 
 // Declaring global variables now to satisfy strict mode
