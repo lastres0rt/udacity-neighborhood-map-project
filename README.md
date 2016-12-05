@@ -14,7 +14,7 @@ The app is responsive, too! It resizes using CSS Flexbox and media queries. It c
 
 # How To Use It
 
-Click here to try it out:
+➡ Click here to try it out:
 
 <http://lastres0rt.github.io/udacity-neighborhood-map-project/> 🗺
 
