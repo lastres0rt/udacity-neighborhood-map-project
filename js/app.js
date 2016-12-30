@@ -7,9 +7,14 @@ var initialLocations = [
 		long: -122.002
 	},
 	{
-		name: 'Hacker Dojo',
+		name: 'Hacker Dojo (old)',
 		lat: 37.402,
 		long: -122.052
+	},
+	{
+		name: 'Hacker Dojo (current)',
+		lat: 37.381,
+		long: -121.961
 	},
 	{
 		name: 'Red Rock Coffee',
@@ -46,7 +51,7 @@ var initialLocations = [
 		lat: 37.307,
 		long: -121.900
 	}
-	
+
 ];
 
 // Declaring global variables now to satisfy strict mode
