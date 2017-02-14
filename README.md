@@ -23,4 +23,4 @@ Click here to try it out:
 # Recent Updates
 ## Last updated February 9, 2017
 
-Updated with new location of Hacker Dojo (old one has been left intact for historical purposes)
+Updated with new location of Hacker Dojo (old one has been left intact for historical purposes) 👩🏽‍🏫
