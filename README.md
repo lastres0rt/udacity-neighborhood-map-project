@@ -14,13 +14,13 @@ There's also extra info pulled from Foursquare where available. This includes we
 
 The app is responsive, too! It resizes using CSS Flexbox and media queries. It can recalibrate itself based on your screen size -- try resizing the window! 🖥 📲
 
-# How To Use It
-
-Click here to try it out:
-
-➡  <http://lastres0rt.github.io/udacity-neighborhood-map-project/> 🗺
-
 ![Screenshot of Map](http://i.imgur.com/gOvmzrv.png)
+
+# How To Use
+
+1. Click here to try it out: ➡  <http://lastres0rt.github.io/udacity-neighborhood-map-project/> 
+2. Click on any of the places on the map / sidebar for more information
+3. Type in the white bar if you only want to see a few of the places listed on the map to make it easier to spot.
 
 # Recent Updates
 ## Last updated February 9, 2017
