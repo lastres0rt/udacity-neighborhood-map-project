@@ -12,7 +12,9 @@ The app allows you to filter the list down as you type. In return, it displays t
 
 There's also extra info pulled from Foursquare where available. This includes websites and phone numbers. ☎️
 
-The app is responsive, too! It resizes using CSS Flexbox and media queries. It can recalibrate itself based on your screen size -- try resizing the window! 🖥 📲
+The app is responsive, too! It resizes using CSS Flexbox and media queries. 
+
+It can recalibrate itself based on your screen size -- try resizing the window! 🖥 📲
 
 ![Screenshot of Map](http://i.imgur.com/gOvmzrv.png)
 
