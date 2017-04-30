@@ -6,7 +6,9 @@
 
 This is the **Udacity Neighborhood Map Project**. It's intended as a challenge to put together a website from various APIs. This includes Google Maps and other location-based services like Foursquare. 🔰
 
-Included is a list of my and my friends' favorite restaurants and hangouts in the South San Francisco Bay Area of California. 🍽 There's also with some local parks in the area. 🌳 🌲
+Included is a list of my and my friends' favorite restaurants and hangouts in the South San Francisco Bay Area of California. 🍽 
+
+There's also with some local parks in the area. 🌳 🌲
 
 The app allows you to filter the list down as you type. In return, it displays the locations on the map. 🗺
 
