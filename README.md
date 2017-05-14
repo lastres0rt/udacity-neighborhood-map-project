@@ -16,7 +16,7 @@ There's also extra info pulled from Foursquare where available. This includes we
 
 The app is responsive, too! It resizes using CSS Flexbox and media queries. 
 
-It can recalibrate itself based on your screen size -- try resizing the window! 🖥 📲
+It can also recalibrate itself based on your screen size. Try resizing the window! 🖥 📲
 
 ![Screenshot of Map](http://i.imgur.com/gOvmzrv.png)
 
