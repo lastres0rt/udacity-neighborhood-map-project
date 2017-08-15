@@ -10,7 +10,7 @@ Included is a list of my and my friends' favorite restaurants and hangouts in th
 
 I also included some local parks in the area. 🌳 🌲
 
-The app allows you to filter the list down as you type. In return, it displays the locations on the map. 🗺
+The app allows you to filter the list down as you type. In return, it displays the locations on the map. Heck, the icons even bounce like you expect them to. 🗺
 
 There's also extra info pulled from Foursquare where available. This includes website URLs and phone numbers. ☎️
 
