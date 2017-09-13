@@ -12,7 +12,7 @@ I also included some local parks in the area. 🌳 🌲
 
 The app allows you to filter the list down as you type. In return, it displays the locations on the map. Heck, the icons even bounce like you expect them to. 🗺
 
-There's also extra info pulled from Foursquare where available. This includes website URLs and phone numbers. ☎️
+There's also extra info pulled from the Foursquare API where available. This includes website URLs and phone numbers. ☎️
 
 The app is responsive, too! It resizes using CSS Flexbox and media queries. 
 
