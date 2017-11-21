@@ -34,3 +34,5 @@ Updated with new location of Hacker Dojo (old one has been left intact for histo
 # Future Improvements
  
 I'd like to get this set up with Gulp so I can automate adding new locations and make updating this app easier! That'd be awesome.
+
+I'd also like to add some new flourishes... this app seems to be getting forked a fair bit, and I'm hoping that's not because of anything that wouldn't be "Udacious"...
